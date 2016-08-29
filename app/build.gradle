@@ -36,5 +36,9 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile(name: 'ttcom', ext: 'aar')
     compile(name: 'ttutil', ext: 'aar')
-
+    compile(name: 'umeng_lib', ext: 'aar')
+    compile(name: 'ttshop', ext: 'aar')
+    compile 'me.yokeyword:fragmentation:0.7.9'
+    compile 'me.yokeyword:fragmentation-swipeback:0.7.9'
+    compile 'com.facebook.stetho:stetho:1.1.0'
 }

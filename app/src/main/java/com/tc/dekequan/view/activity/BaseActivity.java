@@ -1,4 +1,6 @@
-package com.tc.dekequan.activity;
+package com.tc.dekequan.view.activity;
+
+import android.os.Bundle;
 
 import com.tomtop.ttcom.view.activity.StackActivity;
 
@@ -10,4 +12,8 @@ import com.tomtop.ttcom.view.activity.StackActivity;
  * modify by
  */
 public abstract class BaseActivity extends StackActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 }

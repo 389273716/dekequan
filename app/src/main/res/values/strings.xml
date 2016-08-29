@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">dekequan</string>
+    <string name="dk_smart_title">的客智能</string>
+    <string name="dk_community_title">的客社区</string>
+    <string name="dk_cate_title">的客美食</string>
+    <string name="dk_user_center_title">我的的客</string>
 </resources>
