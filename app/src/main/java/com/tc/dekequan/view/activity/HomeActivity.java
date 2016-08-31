@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.tc.dekequan.R;
+import com.tc.dekequan.presenter.BasePresenter;
 import com.tc.dekequan.view.fragment.CateFragment;
 import com.tc.dekequan.view.fragment.CommunityFragment;
 import com.tc.dekequan.view.fragment.SmartFragment;
@@ -16,7 +17,7 @@ import com.tomtop.ttutil.log.LogUtil;
  * author：   tc
  * date：     2016/8/29 & 22:20
  * version    1.0
- * description
+ * description 首页，此页面加载4个fragment首页
  * modify by
  */
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
@@ -53,6 +54,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             mFragments[2] = findFragment(CateFragment.class);
             mFragments[3] = findFragment(UserCenterFragment.class);
         }
+    }
+
+    @Override
+    public BasePresenter getPresenter() {
+        return null;
     }
 
     @Override

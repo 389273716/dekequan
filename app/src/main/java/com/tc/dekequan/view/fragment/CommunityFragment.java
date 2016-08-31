@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tc.dekequan.R;
-import com.tomtop.ttcom.view.fragment.BaseFragment;
+import com.tc.dekequan.presenter.BasePresenter;
 
 /**
  * author：   tc
@@ -15,7 +15,7 @@ import com.tomtop.ttcom.view.fragment.BaseFragment;
  * description
  * modify by
  */
-public class CommunityFragment extends BaseFragment {
+public class CommunityFragment extends DKBaseFragment {
 
     public static CommunityFragment newInstance() {
         CommunityFragment mainFragment = new CommunityFragment();
@@ -42,5 +42,10 @@ public class CommunityFragment extends BaseFragment {
     @Override
     public void bindData() {
 
+    }
+
+    @Override
+    public BasePresenter getPresenter() {
+        return null;
     }
 }

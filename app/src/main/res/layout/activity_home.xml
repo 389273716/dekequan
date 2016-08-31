@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -41,7 +42,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="@string/dk_smart_title"/>
         </LinearLayout>
@@ -64,7 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="@string/dk_community_title"/>
         </LinearLayout>
@@ -87,7 +88,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="@string/dk_cate_title"/>
         </LinearLayout>
@@ -110,7 +111,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="@string/dk_user_center_title"/>
         </LinearLayout>
