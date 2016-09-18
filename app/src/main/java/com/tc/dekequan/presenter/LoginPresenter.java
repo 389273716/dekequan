@@ -29,8 +29,8 @@ public class LoginPresenter extends BasePresenter<ILoginContact.ILoginView> impl
     @Override
     public void login() {
         UserLoginReq entity = new UserLoginReq();
-        entity.setPassword("123456");
-        entity.setUserName("123456@qq.com");
+        entity.setUserName(mIView.getUserName());
+        entity.setPassword(mIView.getPassword());
         UserModel.login(entity, mIView.getReqTag(), this);
     }
 
