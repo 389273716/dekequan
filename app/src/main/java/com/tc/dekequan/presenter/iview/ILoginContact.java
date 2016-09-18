@@ -12,6 +12,16 @@ import com.tomtop.ttcom.bean.json.BaseJson;
  */
 public interface ILoginContact {
     interface ILoginView extends IView {
+        /**
+         * 网络请求tag，用于取消请求
+         * @return
+         */
+        String getReqTag();
+
+        String getPassword();
+
+        String getUserName();
+
         void onSuccess(BaseJson data);
 
         void onFailure(String msg);

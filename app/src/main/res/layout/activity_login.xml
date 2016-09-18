@@ -37,7 +37,7 @@
                 android:src="@mipmap/ic_login_username"/>
 
             <EditText
-                android:id="@+id/et_login_phone_number"
+                android:id="@+id/et_login_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp"

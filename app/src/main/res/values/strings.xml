@@ -9,4 +9,9 @@
     <string name="login_button_tip">登录</string>
     <string name="login_forget_password">忘记密码</string>
     <string name="login_register_tip">免费注册</string>
+    <string name="login_failure_tip">登录失败</string>
+    <string name="username_is_empty">用户名不能为空！</string>
+    <string name="username_is_not_phone_number">用户名必须为手机号！</string>
+    <string name="password_is_empty">密码不能为空！</string>
+    <string name="password_is_not_valid">密码不合法！</string>
 </resources>
