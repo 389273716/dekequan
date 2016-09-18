@@ -4,4 +4,9 @@
     <string name="dk_community_title">的客社区</string>
     <string name="dk_cate_title">的客美食</string>
     <string name="dk_user_center_title">我的的客</string>
+    <string name="login_phone_number_tip">请输入手机号</string>
+    <string name="login_password_tip">请输入登录密码</string>
+    <string name="login_button_tip">登录</string>
+    <string name="login_forget_password">忘记密码</string>
+    <string name="login_register_tip">免费注册</string>
 </resources>

@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.android.volley.VolleyError;
 import com.tc.dekequan.R;
+import com.tc.dekequan.entity.request.UserLoginReq;
+import com.tc.dekequan.model.UserModel;
 import com.tc.dekequan.presenter.BasePresenter;
 import com.tc.dekequan.view.fragment.CateFragment;
 import com.tc.dekequan.view.fragment.CommunityFragment;
 import com.tc.dekequan.view.fragment.SmartFragment;
 import com.tc.dekequan.view.fragment.UserCenterFragment;
+import com.tomtop.ttcom.bean.json.BaseJson;
+import com.tomtop.ttcom.http.volley.ResponseCallback;
 import com.tomtop.ttcom.view.fragment.BaseFragment;
 import com.tomtop.ttutil.log.LogUtil;
 
@@ -92,6 +97,20 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         LogUtil.e(TAG, "onClick: ");
         switch (v.getId()) {
             case R.id.ll_home_smart:
+                UserLoginReq entity=new UserLoginReq();
+                entity.setPassword("123456");
+                entity.setUserName("123456@qq.com");
+                UserModel.login(entity, "tag", new ResponseCallback<BaseJson>() {
+                    @Override
+                    public void onSuccess(BaseJson baseJson, String s) {
+                        LogUtil.e(baseJson.toString());
+                    }
+
+                    @Override
+                    public void onFailed(int i, String s, VolleyError volleyError) {
+                        LogUtil.e(s);
+                    }
+                });
                 showFragment(0);
                 break;
             case R.id.ll_home_community:
@@ -109,7 +128,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void showFragment(int index) {
-        showHideFragment(mFragments[index],mFragments[mCurrentShowIndex]);
+        showHideFragment(mFragments[index], mFragments[mCurrentShowIndex]);
         mCurrentShowIndex = index;
     }
 }

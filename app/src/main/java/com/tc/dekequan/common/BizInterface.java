@@ -3,13 +3,8 @@ package com.tc.dekequan.common;
 
 public class BizInterface {
 
-    public static final int BUSINESS_SUCCESS = 1;
-    public static final int BUSINESS_FAILED = -1;
-    public static final int BUSINESS_NO_DATA = 0;
-    public static final int BUSINESS_LOGIN_INVALID = -22;
-    public static final int BUSINESS_INVALID = -99;
-    public static final int HTTP_SERVER_EXCEPTION = -999;
-
+    public static String SERVICE_SITE = "http://192.168.0.105:8001/";
+    public static String LOGIN = SERVICE_SITE.concat("v1/user/login");
 
 
 }

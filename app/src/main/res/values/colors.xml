@@ -3,7 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="white">#ffffff</color>
-    <color name="default_background_color">@color/white</color>
+    <color name="white_new">#ffffff</color>
+    <color name="default_background_color">@color/white_new</color>
+    <color name="gray_808080">#808080</color>
+    <color name="red_ff3300">#ff3300</color>
 
 </resources>
