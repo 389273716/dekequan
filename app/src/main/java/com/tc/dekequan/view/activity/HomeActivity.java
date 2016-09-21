@@ -93,6 +93,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.ll_home_smart:
                 showFragment(0);
+                startActivity(TestActivity.class, null);
                 break;
             case R.id.ll_home_community:
                 showFragment(1);

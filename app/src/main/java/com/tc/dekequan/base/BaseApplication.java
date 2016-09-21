@@ -2,13 +2,17 @@ package com.tc.dekequan.base;
 
 import android.app.Application;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.integration.volley.VolleyUrlLoader;
+import com.bumptech.glide.load.model.GlideUrl;
 import com.facebook.stetho.Stetho;
 import com.litesuits.orm.LiteOrm;
 import com.litesuits.orm.db.DataBaseConfig;
 import com.tomtop.ttcom.http.volley.VolleyUtil;
-import com.tomtop.ttcom.image.FrescoHelper;
 import com.tomtop.ttutil.CrashHandler;
 import com.tomtop.ttutil.log.LogUtil;
+
+import java.io.InputStream;
 
 
 public class BaseApplication extends Application {
@@ -25,7 +29,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        FrescoHelper.getInstance().initializeFresco(this);
         //异常处理
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);
@@ -36,7 +39,9 @@ public class BaseApplication extends Application {
                         .build());
         LogUtil.init(true);
         VolleyUtil.getInstance().initialize(this);
-
+        Glide.get(this)
+                .register(GlideUrl.class, InputStream.class,new VolleyUrlLoader.Factory
+                        (VolleyUtil.getInstance().getRequestQueue()));
         initDB();
     }
 

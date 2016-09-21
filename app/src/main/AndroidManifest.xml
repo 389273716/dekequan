@@ -1,7 +1,12 @@
 <manifest package="com.tc.dekequan"
           xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -19,6 +24,7 @@
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="25332532"/>
+
         <activity
             android:name=".view.activity.HomeActivity"
             android:label="@string/app_name"
@@ -35,6 +41,9 @@
 
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.TestActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
