@@ -1,17 +1,25 @@
 package com.tc.dekequan.view.activity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.tc.dekequan.R;
 import com.tc.dekequan.presenter.BasePresenter;
+import com.tc.dekequan.util.FilePathUtil;
+import com.tc.dekequan.util.PermissionUtil;
 import com.tc.dekequan.view.fragment.CateFragment;
 import com.tc.dekequan.view.fragment.CommunityFragment;
 import com.tc.dekequan.view.fragment.SmartFragment;
 import com.tc.dekequan.view.fragment.UserCenterFragment;
 import com.tomtop.ttcom.view.fragment.BaseFragment;
 import com.tomtop.ttutil.log.LogUtil;
+
+import cafe.adriel.androidaudiorecorder.AndroidAudioRecorder;
+import cafe.adriel.androidaudiorecorder.model.AudioChannel;
+import cafe.adriel.androidaudiorecorder.model.AudioSampleRate;
+import cafe.adriel.androidaudiorecorder.model.AudioSource;
 
 /**
  * author：   tc
@@ -97,6 +105,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.ll_home_community:
                 showFragment(1);
+                record();
                 break;
             case R.id.ll_home_cate:
                 showFragment(2);
@@ -107,6 +116,32 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             default:
                 break;
         }
+    }
+
+    private void record() {
+        //申请权限
+        PermissionUtil.requestPermission(this, Manifest.permission.RECORD_AUDIO);
+        PermissionUtil.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        String filePath = FilePathUtil.getVoiceFilePath(this, System.currentTimeMillis()+
+                ".aac");
+        int color = getResources().getColor(R.color.colorPrimaryDark);
+        int requestCode = 0;
+        AndroidAudioRecorder.with(this)
+                // Required
+                .setFilePath(filePath)
+                .setColor(color)
+                .setRequestCode(requestCode)
+
+                // Optional
+                .setSource(AudioSource.MIC)
+                .setChannel(AudioChannel.STEREO)
+                .setSampleRate(AudioSampleRate.HZ_48000)
+                .setAutoStart(false)
+                .setKeepDisplayOn(true)
+
+                // Start recording
+                .record();
     }
 
     private void showFragment(int index) {
