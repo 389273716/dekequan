@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dekequan</string>
+    <string name="app_name">的客圈</string>
     <string name="dk_smart_title">的客智能</string>
     <string name="dk_community_title">的客社区</string>
     <string name="dk_cate_title">的客美食</string>
@@ -14,4 +14,6 @@
     <string name="username_is_not_phone_number">用户名必须为手机号！</string>
     <string name="password_is_empty">密码不能为空！</string>
     <string name="password_is_not_valid">密码不合法！</string>
+    <string name="play">播放</string>
+    <string name="stop">暂停</string>
 </resources>

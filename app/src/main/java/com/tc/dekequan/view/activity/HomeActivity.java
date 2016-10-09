@@ -1,11 +1,13 @@
 package com.tc.dekequan.view.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.tc.dekequan.R;
+import com.tc.dekequan.common.ShareConstants;
 import com.tc.dekequan.presenter.BasePresenter;
 import com.tc.dekequan.util.FilePathUtil;
 import com.tc.dekequan.util.PermissionUtil;
@@ -14,6 +16,7 @@ import com.tc.dekequan.view.fragment.CommunityFragment;
 import com.tc.dekequan.view.fragment.SmartFragment;
 import com.tc.dekequan.view.fragment.UserCenterFragment;
 import com.tomtop.ttcom.view.fragment.BaseFragment;
+import com.tomtop.ttutil.PreferencesUtil;
 import com.tomtop.ttutil.log.LogUtil;
 
 import cafe.adriel.androidaudiorecorder.AndroidAudioRecorder;
@@ -37,6 +40,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     BaseFragment[] mFragments = new BaseFragment[4];
 
     private int mCurrentShowIndex = 0;//当前显示页面的索引
+    private String mFilePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +113,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.ll_home_cate:
                 showFragment(2);
+                startActivity(PlayVoiceActivity.class, null);
                 break;
             case R.id.ll_home_user_center:
                 showFragment(3);
@@ -123,13 +128,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         PermissionUtil.requestPermission(this, Manifest.permission.RECORD_AUDIO);
         PermissionUtil.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        String filePath = FilePathUtil.getVoiceFilePath(this, System.currentTimeMillis()+
+        mFilePath = FilePathUtil.getVoiceFilePath(this, System.currentTimeMillis() +
                 ".aac");
         int color = getResources().getColor(R.color.colorPrimaryDark);
         int requestCode = 0;
         AndroidAudioRecorder.with(this)
                 // Required
-                .setFilePath(filePath)
+                .setFilePath(mFilePath)
                 .setColor(color)
                 .setRequestCode(requestCode)
 
@@ -142,6 +147,20 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
                 // Start recording
                 .record();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                PreferencesUtil.putString(this, ShareConstants.VOICE_PATH, ShareConstants
+                        .KEY_CURRENT_VOICE_PATH, mFilePath);
+                // Great! User has recorded and saved the audio file
+            } else if (resultCode == RESULT_CANCELED) {
+                // Oops! User has canceled the recording
+            }
+        }
     }
 
     private void showFragment(int index) {
