@@ -129,7 +129,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         PermissionUtil.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         mFilePath = FilePathUtil.getVoiceFilePath(this, System.currentTimeMillis() +
-                ".aac");
+                ".amr");
         int color = getResources().getColor(R.color.colorPrimaryDark);
         int requestCode = 0;
         AndroidAudioRecorder.with(this)
@@ -141,7 +141,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 // Optional
                 .setSource(AudioSource.MIC)
                 .setChannel(AudioChannel.STEREO)
-                .setSampleRate(AudioSampleRate.HZ_48000)
+                .setSampleRate(AudioSampleRate.HZ_8000)
                 .setAutoStart(false)
                 .setKeepDisplayOn(true)
 
